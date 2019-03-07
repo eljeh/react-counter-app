@@ -13,21 +13,20 @@ class Counter extends Component {
   render() {
     return (
       <div className="mt-3 mx-auto">
-        
+        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={this.handleIncrement}
-          className="btn btn-secondary btn-sm ml-5"
+          className="btn btn-secondary btn-sm m-2"
         >
           Increment
         </button>
-        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
       </div>
     );
   }
 
   getBadgeClasses() {
-    let classes = "badge m-2 mr-3 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    let classes = "badge m-2 badge-";
+    classes += this.state.value === 0 ? "warning" : "primary mx-3 px-2";
     return classes;
   }
 
