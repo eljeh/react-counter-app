@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   render() {
+    console.log('Counted - Rendered')
     return (
       <div className="mt-3 mx-auto">
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
