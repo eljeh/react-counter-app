@@ -7,9 +7,18 @@ class Counters extends Component {
 			{ id: 1, value: 0 },
 			{ id: 2, value: 0 },
 			{ id: 3, value: 0 },
-			{ id: 4, value: 0 },
+			{ id: 4, value: 0 }
 		]
 	}
+
+	handleIncrement = counter => {
+		const counters = [...this.state.counters];
+		const index = counters.indexOf(counter);
+		counters[index] = {...counter};
+		counters[index].value++;
+		this.setState({counters});
+	}
+
 	handleReset = () => {
 		const counters = this.state.counters.map(c => {
 			c.value = 0;
@@ -23,17 +32,18 @@ class Counters extends Component {
 	}
 	render() {
 		return (
-		<div className="mt-3 mx-5">
-			<button
-				onClick={this.handleReset}
-				className="btn-primary btn-sm m-2">
-				Reset
+			<div className="mt-3 mx-5">
+				<button
+					onClick={this.handleReset}
+					className="btn-primary btn-sm m-2">
+					Reset
 			</button>
-			
+
 				{this.state.counters.map(counter => (
 					<Counter
 						key={counter.id}
 						onDelete={this.handleDelete}
+						onIncrement={this.handleIncrement}
 						counter={counter}
 					/>
 				))}
