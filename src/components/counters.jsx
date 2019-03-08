@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Counter from './counter';
-import { prependOnceListener } from 'cluster';
 
 class Counters extends Component {
 
