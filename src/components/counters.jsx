@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import Counter from './counter';
+import { prependOnceListener } from 'cluster';
 
 class Counters extends Component {
 
+	componentDidUpdate(prevProps, prevState) {
+		console.log('prevProps', prevProps);
+		console.log('prevState', prevState);
+	}
 	render() {
 		console.log('Counters - Rendered');
 		const { onReset, counters, onDelete, onIncrement} = this.props;
